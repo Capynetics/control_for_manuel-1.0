@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot name="manuel1">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="visual_links/base_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="collision_links/base_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="waist_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="shoulder_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159265" upper="3.14159265" effort="150" velocity="3.0"/>
+  </joint>
+
+  <link name="shoulder_link">
+    <visual>
+      <geometry>
+        <mesh filename="visual_links/shoulder_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="collision_links/shoulder_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="shoulder_joint" type="revolute">
+    <parent link="shoulder_link"/>
+    <child link="upper_arm_link"/>
+    <origin xyz="0 0 0.1307" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.57079632" upper="1.57079632" effort="120" velocity="3.0"/>
+  </joint>
+
+  <link name="upper_arm_link">
+    <visual>
+      <origin xyz="0 0 -0.1307" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="visual_links/upper_arm_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1307" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="collision_links/upper_arm_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="elbow_joint" type="revolute">
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <origin xyz="0 0 0.305" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0.0" upper="3.14159265" effort="120" velocity="3.0"/>
+  </joint>
+
+  <link name="forearm_link">
+    <visual>
+      <origin xyz="0 0 -0.4357" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="visual_links/forearm_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.4357" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="collision_links/forearm_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="forearm_link"/>
+    <child link="wrist_12_link"/>
+    <origin xyz="0 0.06 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159265" upper="3.14159265" effort="50" velocity="4.0"/>
+  </joint>
+
+  <link name="wrist_12_link">
+    <visual>
+      <origin xyz="0 -0.06 -0.4357" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="visual_links/wrist_12_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.06 -0.4357" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="collision_links/wrist_12_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="wrist_12_link"/>
+    <child link="wrist_23_link"/>
+    <origin xyz="0 0 0.4033" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14159265" upper="3.14159265" effort="50" velocity="4.0"/>
+  </joint>
+
+  <link name="wrist_23_link">
+    <visual>
+      <origin xyz="0 -0.06 -0.839" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="visual_links/wrist_23_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.06 -0.839" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="collision_links/wrist_23_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="wrist_23_link"/>
+    <child link="gripper_link"/>
+    <origin xyz="-0.1383 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159265" upper="3.14159265" effort="30" velocity="4.0"/>
+  </joint>
+
+  <link name="gripper_link">
+    <visual>
+      <origin xyz="0.1383 -0.06 -0.839" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="visual_links/gripper_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1383 -0.06 -0.839" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="collision_links/gripper_collision.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>

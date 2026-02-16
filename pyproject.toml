@@ -1,0 +1,19 @@
+[project]
+name = "manuel-control"
+version = "0.1.0"
+description = "Interactive control and IK for Manuel robot using Pinocchio and Meshcat"
+authors = [
+    { name = "Your Name" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "numpy",
+    "pin==2.6.17",
+    "meshcat"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
