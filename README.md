@@ -131,3 +131,8 @@ ik_clik("gripper_link", [0.3, 0.2, 0.4], R)
 -   This project performs kinematic control only.
 -   No dynamics or torque control is implemented.
 -   Joint limits are defined in the URDF.
+-   Linking between the simulation and the real robot will be done in the future.
+
+## Important commentary
+
+One of Manuel’s main advantages over other open-source arms is its use of Dynamixel actuators, which enable advanced torque control strategies such as gravity compensation and impedance control. However, these methods require an accurate dynamic model. Currently, the URDF lacks inertial tags, making it impossible to fully utilize the robot’s torque control capabilities.
