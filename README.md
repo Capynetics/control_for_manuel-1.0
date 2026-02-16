@@ -9,6 +9,10 @@ Interactive forward and inverse kinematics control of the **Manuel**
 
 ------------------------------------------------------------------------
 
+## Demo Video
+
+[![Watch the demo](https://img.youtube.com/vi/znPbyi5hQ2s/0.jpg)](https://www.youtube.com/watch?v=znPbyi5hQ2s)
+
 ## Requirements
 
 -   Python ≥ 3.9
